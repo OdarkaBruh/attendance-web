@@ -1,15 +1,12 @@
 package nokhrina.daria.attendance_web.controller;
 
-import nokhrina.daria.attendance_web.model.Course;
 import nokhrina.daria.attendance_web.model.Student;
-import nokhrina.daria.attendance_web.model.StudentCourse;
 import nokhrina.daria.attendance_web.repo.CourseRepo;
 import nokhrina.daria.attendance_web.repo.StudentCourseRepo;
 import nokhrina.daria.attendance_web.repo.StudentRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -40,7 +37,6 @@ public class StudentController {
     @PostMapping("/students/add")
     public String addCourse(@ModelAttribute("student") Student student) {
         studentRepo.save(student);
-
         return "redirect:/courses";
     }
 }

@@ -1,9 +1,8 @@
-package nokhrina.daria.attendance_web.model;
+package nokhrina.daria.attendance_web.model.relationship;
 
 import jakarta.persistence.*;
-
-import java.util.Date;
-import java.util.List;
+import nokhrina.daria.attendance_web.model.Course;
+import nokhrina.daria.attendance_web.model.Student;
 
 @Entity
 @Table(name = "student_course")
@@ -36,7 +35,6 @@ public class StudentCourse {
         this.course = course;
     }
 
-
     @ManyToOne
     @JoinColumn(name = "student_id", nullable = false)
     private Student student;
@@ -44,6 +42,5 @@ public class StudentCourse {
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
-
 
 }
