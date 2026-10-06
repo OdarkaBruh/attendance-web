@@ -5,6 +5,7 @@ import nokhrina.daria.attendance_web.model.Student;
 import nokhrina.daria.attendance_web.model.Teacher;
 import nokhrina.daria.attendance_web.service.CourseService;
 import nokhrina.daria.attendance_web.service.TeacherService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/courses")
 public class CourseController {
-    private final CourseService service;
-    private final TeacherService teacherService;
-
-    public CourseController (CourseService service, TeacherService teacherService) {
-        this.service = service;
-        this.teacherService = teacherService;
-    }
+    @Autowired
+    private CourseService service;
+    @Autowired
+    private TeacherService teacherService;
 
     @GetMapping("/all")
     public String getStudents(Model model) {
