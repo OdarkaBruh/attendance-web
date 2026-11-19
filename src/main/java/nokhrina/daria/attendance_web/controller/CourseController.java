@@ -37,7 +37,7 @@ public class CourseController {
         model.addAttribute("course", course);
         return "courses/course";
     }
-
+    
     @PostMapping("/add")
     public String addCourse (@ModelAttribute("course") Course course) {
 

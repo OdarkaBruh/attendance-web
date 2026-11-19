@@ -1,29 +1,28 @@
 package nokhrina.daria.attendance_web.service;
 
-import nokhrina.daria.attendance_web.model.Course;
 import nokhrina.daria.attendance_web.model.Teacher;
-import nokhrina.daria.attendance_web.repo.TeacherRepo;
+import nokhrina.daria.attendance_web.repo.TeacherRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class TeacherService {
-    private final TeacherRepo teacherRepo;
+    private final TeacherRepository teacherRepository;
 
-    public TeacherService(TeacherRepo teacherRepo) {
-        this.teacherRepo = teacherRepo;
+    public TeacherService(TeacherRepository teacherRepository) {
+        this.teacherRepository = teacherRepository;
     }
 
     public List<Teacher> getAllTeachers() {
-        return teacherRepo.findAll();
+        return teacherRepository.findAll();
     }
 
     public void addTeacher(Teacher teacher) {
-        teacherRepo.save(teacher);
+        teacherRepository.save(teacher);
     }
 
     public Teacher getByID(Long teacherID) {
-        return teacherRepo.getReferenceById(teacherID);
+        return teacherRepository.getReferenceById(teacherID);
     }
 }

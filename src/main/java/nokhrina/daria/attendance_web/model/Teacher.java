@@ -3,41 +3,13 @@ package nokhrina.daria.attendance_web.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="teacher")
-public class Teacher {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    private String firstName;
-    private String lastName;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+@Table(name = "teachers")
+public class Teacher extends Person {
 
     private String position;
+
+    public Teacher() {
+    }
 
     public String getPosition() {
         return position;

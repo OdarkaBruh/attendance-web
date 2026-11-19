@@ -1,34 +1,22 @@
 package nokhrina.daria.attendance_web.model;
 
 import jakarta.persistence.*;
+import nokhrina.daria.attendance_web.model.relationship.StudentCourse;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "student")
-public class Student {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Table(name = "students")
+public class Student extends Person {
 
-    public String getFirstName() {
-        return firstName;
+    @OneToMany(mappedBy = "student")
+    private List<StudentCourse> courses = new ArrayList<>();
+
+    public Student() {
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    private String firstName;
-    private String lastName;
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public List<StudentCourse> getCourses() {
+        return courses;
     }
 }

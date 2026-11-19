@@ -1,9 +1,6 @@
 package nokhrina.daria.attendance_web.controller;
 
-import nokhrina.daria.attendance_web.model.Course;
 import nokhrina.daria.attendance_web.model.Teacher;
-import nokhrina.daria.attendance_web.repo.CourseRepo;
-import nokhrina.daria.attendance_web.repo.StudentRepo;
 import nokhrina.daria.attendance_web.service.TeacherService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,13 +26,6 @@ public class TeacherController {
         model.addAttribute("teacher", new Teacher());
         return "teachers/create-teacher";
     }
-
-//    @GetMapping("/{id}")
-//    public String getStudents(Model model, @PathVariable Long id) {
-//        Course course = service.getTeacherById(id).orElseThrow();
-//        model.addAttribute("course", course);
-//        return "teachers/course";
-//    }
 
     @PostMapping("/add")
     public String addTeacher (@ModelAttribute("teacher") Teacher teacher) {

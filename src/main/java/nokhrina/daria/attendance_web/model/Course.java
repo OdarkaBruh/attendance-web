@@ -3,13 +3,16 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "course")
+@Table(name = "courses")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
+
+    @ManyToOne
+    private Teacher teacher;
 
     public Teacher getTeacher() {
         return teacher;
@@ -18,9 +21,6 @@ public class Course {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
-
-    @ManyToOne
-    private Teacher teacher;
 
     public String getDescription() {
         return description;
